@@ -1,0 +1,239 @@
+/* ==========================================================================
+   HERO SECTION & AVATAR STYLES
+   ========================================================================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-height) + var(--space-12));
+  padding-bottom: var(--space-16);
+  position: relative;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--accent-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.hero__headline {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: var(--font-bold);
+  line-height: 1.12;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.035em;
+}
+
+.hero__subheadline {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 540px;
+  margin-bottom: var(--space-8);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   ENGINEER PROFILE AVATAR (Google/Senior SWE Aesthetic)
+   ========================================================================== */
+
+.hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient Radial Glow */
+.hero-avatar__glow {
+  position: absolute;
+  inset: -25px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--accent-interview-glow) 0%,
+    rgba(59, 130, 246, 0.18) 45%,
+    transparent 72%
+  );
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+  animation: avatarGlowPulse 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes avatarGlowPulse {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Subtle Gradient Ring */
+.hero-avatar__ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    transparent 50%,
+    rgba(59, 130, 246, 0.7) 100%
+  );
+  z-index: 1;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: ringRotate 16s linear infinite;
+}
+
+@keyframes ringRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Circular Photo Frame */
+.hero-avatar__frame {
+  position: relative;
+  z-index: 2;
+  width: clamp(240px, 26vw, 330px);
+  height: clamp(240px, 26vw, 330px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--bg-surface);
+  box-shadow:
+    0 24px 50px -15px rgba(0, 0, 0, 0.6),
+    0 0 0 1px var(--border-subtle);
+  background: var(--bg-surface);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-avatar:hover .hero-avatar__frame {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.7),
+    0 0 30px -5px var(--accent-interview-glow),
+    0 0 0 1px var(--border-hover);
+}
+
+/* The actual photo inside circular crop */
+.hero-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-avatar:hover .hero-avatar__img {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    text-align: center;
+  }
+
+  .hero__eyebrow {
+    justify-content: center;
+  }
+
+  .hero__subheadline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__visual {
+    order: -1;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-avatar__frame {
+    width: clamp(200px, 45vw, 260px);
+    height: clamp(200px, 45vw, 260px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + var(--space-8));
+    padding-bottom: var(--space-10);
+  }
+
+  .hero__headline {
+    font-size: var(--text-3xl);
+  }
+
+  .hero__subheadline {
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__headline {
+    font-size: var(--text-2xl);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero-avatar__frame {
+    width: 210px;
+    height: 210px;
+  }
+}
