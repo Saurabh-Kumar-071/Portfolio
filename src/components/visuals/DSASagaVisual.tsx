@@ -1,94 +1,53 @@
+import { Terminal, ShieldCheck } from "lucide-react";
 import "./ProjectVisuals.css";
 
-/** DSASaga — Code editor workspace illustration */
+/**
+ * DSASagaVisual — High-Fidelity App Window Mockup
+ * Showcases the full DSASaga collaborative coding & execution platform
+ * with zero clipping, ambient blue/cyan glow, scanner beam, and floating animation.
+ */
 export default function DSASagaVisual() {
   return (
-    <div className="pv pv--dsa" aria-label="DSASaga code editor interface concept illustration">
-      {/* Problem sidebar */}
-      <div className="pv-dsa__sidebar">
-        <div className="pv-dsa__sidebar-title">Problems</div>
-        <div className="pv-dsa__problem-item pv-dsa__problem-item--active">
-          <span className="pv-dsa__problem-num">#1</span>
-          <span className="pv-dsa__problem-name">Two Sum</span>
-          <span className="pv-dsa__problem-diff pv-dsa__diff--easy">E</span>
-        </div>
-        <div className="pv-dsa__problem-item">
-          <span className="pv-dsa__problem-num">#2</span>
-          <span className="pv-dsa__problem-name">Valid Parens</span>
-          <span className="pv-dsa__problem-diff pv-dsa__diff--easy">E</span>
-        </div>
-        <div className="pv-dsa__problem-item">
-          <span className="pv-dsa__problem-num">#3</span>
-          <span className="pv-dsa__problem-name">LRU Cache</span>
-          <span className="pv-dsa__problem-diff pv-dsa__diff--med">M</span>
-        </div>
-        <div className="pv-dsa__problem-item">
-          <span className="pv-dsa__problem-num">#4</span>
-          <span className="pv-dsa__problem-name">Merge K Lists</span>
-          <span className="pv-dsa__problem-diff pv-dsa__diff--hard">H</span>
-        </div>
-      </div>
+    <div className="pv pv--showcase pv--showcase-dsa" aria-label="DSASaga Platform Showcase">
+      {/* Background ambient radial glow */}
+      <div className="pv-showcase__ambient pv-showcase__ambient--dsa" aria-hidden="true" />
 
-      {/* Main workspace */}
-      <div className="pv-dsa__main">
-        {/* Problem description */}
-        <div className="pv-dsa__desc">
-          <div className="pv-dsa__desc-header">
-            <span className="pv-dsa__desc-title">Two Sum</span>
-            <span className="pv-dsa__desc-diff pv-dsa__diff--easy">Easy</span>
+      {/* Floating App Window */}
+      <div className="pv-showcase__window pv-showcase__window--dsa">
+        {/* Browser / App Header Bar */}
+        <div className="pv-showcase__bar">
+          <div className="pv-showcase__dots" aria-hidden="true">
+            <span className="pv-showcase__dot pv-showcase__dot--red" />
+            <span className="pv-showcase__dot pv-showcase__dot--yellow" />
+            <span className="pv-showcase__dot pv-showcase__dot--green" />
           </div>
-          <div className="pv-dsa__desc-text">
-            Given an array of integers and a target, return indices of two numbers that add up to target.
+
+          <div className="pv-showcase__address">
+            <ShieldCheck size={10} className="pv-showcase__lock" />
+            <span className="pv-showcase__url">dsasaga.com/practice</span>
           </div>
-          <div className="pv-dsa__constraint">
-            <span className="pv-dsa__constraint-label">Constraint:</span> 2 ≤ nums.length ≤ 10⁴
+
+          <div className="pv-showcase__badge pv-showcase__badge--dsa">
+            <span className="pv-showcase__status-dot pv-showcase__status-dot--blue" />
+            <Terminal size={9} className="pv-showcase__sparkle--dsa" />
+            <span>Live Sandbox</span>
           </div>
         </div>
 
-        {/* Code editor */}
-        <div className="pv-dsa__editor">
-          <div className="pv-dsa__editor-bar">
-            <span className="pv-dsa__lang-active">JavaScript</span>
-            <div className="pv-dsa__editor-actions">
-              <span className="pv-dsa__action-btn pv-dsa__action-btn--run">▶ Run</span>
-              <span className="pv-dsa__action-btn pv-dsa__action-btn--submit">Submit</span>
-            </div>
-          </div>
-          <div className="pv-dsa__code">
-            <div className="pv-dsa__code-line">
-              <span className="pv-dsa__ln">1</span>
-              <span><span className="code-keyword">function</span> <span className="code-function">twoSum</span>(nums, target) {"{"}<span className="pv-dsa__cursor">|</span></span>
-            </div>
-            <div className="pv-dsa__code-line">
-              <span className="pv-dsa__ln">2</span>
-              <span>  <span className="code-keyword">const</span> map = <span className="code-keyword">new</span> Map();</span>
-            </div>
-            <div className="pv-dsa__code-line">
-              <span className="pv-dsa__ln">3</span>
-              <span>  <span className="code-keyword">for</span> (<span className="code-keyword">let</span> i = <span className="code-number">0</span>; i &lt; nums.length; i++) {"{"}</span>
-            </div>
-            <div className="pv-dsa__code-line">
-              <span className="pv-dsa__ln">4</span>
-              <span>    <span className="code-keyword">if</span> (map.has(target - nums[i]))</span>
-            </div>
-            <div className="pv-dsa__code-line">
-              <span className="pv-dsa__ln">5</span>
-              <span>      <span className="code-keyword">return</span> [map.get(...), i];</span>
-            </div>
-          </div>
-        </div>
+        {/* Dashboard Image Stage */}
+        <div className="pv-showcase__stage">
+          <img
+            src="/dsasaga.png"
+            alt="DSASaga — Collaborative DSA Practice and Code Execution Platform"
+            className="pv-showcase__img"
+            loading="lazy"
+          />
 
-        {/* Test results */}
-        <div className="pv-dsa__results">
-          <div className="pv-dsa__results-header">Test Cases</div>
-          <div className="pv-dsa__test-case">
-            <span className="pv-dsa__test-label">Input:</span>
-            <code>[2,7,11,15], target=9</code>
-          </div>
-          <div className="pv-dsa__test-case">
-            <span className="pv-dsa__test-label">Expected:</span>
-            <code>[0,1]</code>
-          </div>
+          {/* Code Execution Scanner Beam Animation */}
+          <div className="pv-showcase__scanner pv-showcase__scanner--dsa" aria-hidden="true" />
+
+          {/* Diagonal Glass Sheen Reflection */}
+          <div className="pv-showcase__sheen" aria-hidden="true" />
         </div>
       </div>
     </div>

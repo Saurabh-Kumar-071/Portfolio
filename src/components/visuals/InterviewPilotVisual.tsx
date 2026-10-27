@@ -1,79 +1,53 @@
+import { Sparkles, ShieldCheck } from "lucide-react";
 import "./ProjectVisuals.css";
 
-/** InterviewPilot — Mock interview workspace illustration */
+/**
+ * InterviewPilotVisual — High-Fidelity App Window Mockup
+ * Showcases the full InterviewPilot AI dashboard with zero clipping,
+ * ambient background glow, AI laser scanner, floating animation, and light sheen sweep.
+ */
 export default function InterviewPilotVisual() {
   return (
-    <div className="pv pv--interview" aria-label="InterviewPilot interface concept illustration">
-      {/* Sidebar */}
-      <div className="pv-interview__sidebar">
-        <div className="pv-interview__sidebar-title">Sessions</div>
-        <div className="pv-interview__sidebar-item pv-interview__sidebar-item--active">
-          <span className="pv-interview__dot" />
-          Arrays & Hashing
-        </div>
-        <div className="pv-interview__sidebar-item">
-          <span className="pv-interview__dot pv-interview__dot--dim" />
-          Binary Search
-        </div>
-        <div className="pv-interview__sidebar-item">
-          <span className="pv-interview__dot pv-interview__dot--dim" />
-          Linked Lists
-        </div>
-        <div className="pv-interview__sidebar-item">
-          <span className="pv-interview__dot pv-interview__dot--dim" />
-          Trees & Graphs
-        </div>
-      </div>
+    <div className="pv pv--showcase" aria-label="InterviewPilot AI Platform Dashboard Showcase">
+      {/* Background ambient radial glow */}
+      <div className="pv-showcase__ambient" aria-hidden="true" />
 
-      {/* Main panel */}
-      <div className="pv-interview__main">
-        <div className="pv-interview__header">
-          <span className="pv-interview__header-label">Mock Interview</span>
-          <span className="pv-interview__header-timer">
-            24<span className="pv-interview__timer-colon">:</span>30
-          </span>
-        </div>
-
-        <div className="pv-interview__question">
-          <div className="pv-interview__q-badge">Question 3 of 5</div>
-          <div className="pv-interview__q-title">Two Sum</div>
-          <div className="pv-interview__q-difficulty">
-            <span className="pv-interview__difficulty-tag pv-interview__difficulty-tag--easy">Easy</span>
+      {/* Floating App Window */}
+      <div className="pv-showcase__window">
+        {/* Browser / App Header Bar */}
+        <div className="pv-showcase__bar">
+          <div className="pv-showcase__dots" aria-hidden="true">
+            <span className="pv-showcase__dot pv-showcase__dot--red" />
+            <span className="pv-showcase__dot pv-showcase__dot--yellow" />
+            <span className="pv-showcase__dot pv-showcase__dot--green" />
           </div>
-          <div className="pv-interview__q-desc">
-            Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to target.
+
+          <div className="pv-showcase__address">
+            <ShieldCheck size={10} className="pv-showcase__lock" />
+            <span className="pv-showcase__url">interviewpilot.ai/eval</span>
+          </div>
+
+          <div className="pv-showcase__badge">
+            <span className="pv-showcase__status-dot" />
+            <Sparkles size={9} className="pv-showcase__sparkle" />
+            <span>AI Live</span>
           </div>
         </div>
 
-        <div className="pv-interview__editor-hint">
-          <div className="pv-interview__editor-bar">
-            <span className="pv-interview__lang-tag">C++</span>
-            <span className="pv-interview__lang-tag pv-interview__lang-tag--dim">Python</span>
-            <span className="pv-interview__lang-tag pv-interview__lang-tag--dim">Java</span>
-          </div>
-          <div className="pv-interview__code-lines">
-            <span className="pv-interview__code-ln">1</span>
-            <span className="pv-interview__code-text"><span className="code-keyword">class</span> Solution {"{"}</span>
-          </div>
-          <div className="pv-interview__code-lines">
-            <span className="pv-interview__code-ln">2</span>
-            <span className="pv-interview__code-text"><span className="code-keyword">public</span>:</span>
-          </div>
-          <div className="pv-interview__code-lines">
-            <span className="pv-interview__code-ln">3</span>
-            <span className="pv-interview__code-text">  vector&lt;int&gt; <span className="code-function">twoSum</span>(...) {"{"}</span>
-          </div>
-          <div className="pv-interview__code-lines">
-            <span className="pv-interview__code-ln">4</span>
-            <span className="pv-interview__code-text">    <span className="code-comment">// your solution</span></span>
-          </div>
-        </div>
+        {/* Dashboard Image Stage */}
+        <div className="pv-showcase__stage">
+          <img
+            src="/interviewpilot_dashboard.png"
+            alt="InterviewPilot AI Dashboard — AI Resume Evaluation, ATS Score Analyzer, and Mock Interview Insights"
+            className="pv-showcase__img"
+            loading="lazy"
+          />
 
-        <div className="pv-interview__footer">
-          <span className="pv-interview__progress-label">Progress</span>
-          <div className="pv-interview__progress-bar">
-            <div className="pv-interview__progress-fill" style={{ width: "60%" }} />
-          </div>
+          {/* AI Laser Scanner Beam Animation */}
+          <div className="pv-showcase__scanner" aria-hidden="true" />
+
+          {/* Diagonal Glass Sheen Reflection */}
+          <div className="pv-showcase__sheen" aria-hidden="true" />
         </div>
       </div>
     </div>
